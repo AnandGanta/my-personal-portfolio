@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganta Anand | Computer Science Graduate</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Font and Styling */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0A1F; /* Deep Navy Blue Background */
+            color: #E2E8F0; /* Light Gray Text */
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1280px;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50%;
+            height: 4px;
+            background-color: #3B82F6; /* Accent Blue */
+            border-radius: 9999px;
+        }
+        
+        /* 1. ANIMATION KEYFRAMES */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Initial state for scroll-triggered elements */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        /* State when element is in view */
+        .scroll-animate.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 2. CURSOR MOVEMENT TRANSITION */
+        #hero-text-container {
+            /* This makes the CSS transition smooth when the mouse moves */
+            transition: transform 0.1s ease-out; 
+        }
+
+        /* Style for on-page-load fade in for Hero elements */
+        .hero-fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-[#0A0A1F]/95 backdrop-blur-sm shadow-xl">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-white hover:text-[#3B82F6] transition duration-300">
+                <span class="text-[#3B82F6]">G</span>anta Anand
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-300 hover:text-[#3B82F6] transition duration-300">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-[#3B82F6] transition duration-300">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-[#3B82F6] transition duration-300">Projects</a>
+                <a href="#contact" class="text-gray-300 hover:text-[#3B82F6] transition duration-300">Contact</a>
+            </div>
+            <!-- Simple mobile menu icon (SVG) - Functionality remains in JS -->
+            <div class="md:hidden">
+                <button class="text-gray-300 hover:text-[#3B82F6]">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-16">
+        <!-- 1. Hero Section -->
+        <section id="home" class="container mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center justify-between min-h-screen-minus-header">
+            <!-- Cursor Movement Target Wrapper -->
+            <div class="md:w-3/5 text-center md:text-left mb-10 md:mb-0" id="hero-text-container">
+                <p class="text-xl text-[#9CA3AF] mb-3 hero-fade-in" style="animation-delay: 0.1s;">Hello, I'm</p>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4 hero-fade-in" style="animation-delay: 0.3s;">
+                    Ganta Anand
+                </h1>
+                <h2 class="text-3xl md:text-4xl font-semibold text-[#3B82F6] mb-8 hero-fade-in" style="animation-delay: 0.5s;">
+                    Computer Science Graduate & Problem Solver.
+                </h2>
+                <p class="text-lg text-[#9CA3AF] max-w-xl mb-10 hero-fade-in" style="animation-delay: 0.7s;">
+                    Enthusiastic and self-driven Computer Science graduate eager to apply my technical skills and strong foundation in core programming concepts to impactful projects in the tech industry.
+                </p>
+                <a href="#projects" class="inline-block px-8 py-3 text-lg font-semibold text-white bg-[#3B82F6] rounded-lg shadow-lg hover:bg-[#2563EB] transition duration-300 transform hover:scale-[1.05] focus:outline-none focus:ring-4 focus:ring-[#3B82F6]/50 hero-fade-in" style="animation-delay: 0.9s;">
+                    View My Work
+                </a>
+            </div>
+            <div class="md:w-2/5 flex justify-center hero-fade-in" style="animation-delay: 1.1s;">
+                <!-- Placeholder for a professional image or avatar -->
+                <div class="w-64 h-64 md:w-80 md:h-80 bg-[#1F2937] rounded-full flex items-center justify-center border-4 border-[#3B82F6] shadow-2xl">
+                    <span class="text-2xl text-[#9CA3AF] text-center">Ganta Anand</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. About Section -->
+        <section id="about" class="container mx-auto px-6 py-20 scroll-animate">
+            <h2 class="section-title text-4xl font-bold mb-12">About Me</h2>
+            <div class="bg-[#1F2937] p-8 md:p-12 rounded-xl shadow-2xl">
+                <div class="space-y-6 text-lg">
+                    <p>
+                        I am an enthusiastic and self-driven Computer Science graduate from **Acharya Nagarjuna University (B.Tech 2021-2025)** with a strong foundation in core concepts and hands-on experience in programming.
+                    </p>
+                    <p>
+                        I am passionate about innovation and problem-solving, and I thrive on applying technical skills to build robust and scalable solutions. I have experience across the **MERN stack**, data analysis tools like **IBM Cognos and Qlik**, and a solid understanding of **Data Structures and OOPS**.
+                    </p>
+                    <p>
+                        Beyond technical expertise, I have developed strong soft skills in communication, self-learning, and leadership, which were further honed during the **Aspire Leadership Program at Harvard University**. I am eager to contribute to impactful projects and build a successful career in the tech industry.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Skills/Tech Stack Section -->
+        <section id="skills" class="container mx-auto px-6 py-20 scroll-animate">
+            <h2 class="section-title text-4xl font-bold mb-12">My Skills</h2>
+            <h3 class="text-2xl font-semibold text-gray-300 mb-6">Technical Stack</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
+                <!-- Skill Card 1: Python -->
+                <div class="flex flex-col items-center p-4 bg-[#1F2937] rounded-lg shadow-lg hover:bg-[#253240] transition duration-300 transform hover:scale-[1.05]">
+                    <span class="text-4xl mb-2 text-[#FFD43B]">🐍</span>
+                    <p class="font-semibold text-white">Python</p>
+                </div>
+                <!-- Skill Card 2: Java -->
+                <div class="flex flex-col items-center p-4 bg-[#1F2937] rounded-lg shadow-lg hover:bg-[#253240] transition duration-300 transform hover:scale-[1.05]">
+                    <span class="text-4xl mb-2 text-[#F89820]">☕</span>
+                    <p class="font-semibold text-white">Java</p>
+                </div>
+                <!-- Skill Card 3: HTML5/CSS -->
+                <div class="flex flex-col items-center p-4 bg-[#1F2937] rounded-lg shadow-lg hover:bg-[#253240] transition duration-300 transform hover:scale-[1.05]">
+                    <span class="text-4xl mb-2 text-[#E34F26]">🌐</span>
+                    <p class="font-semibold text-white">HTML5/CSS</p>
+                </div>
+                <!-- Skill Card 4: MySQL -->
+                <div class="flex flex-col items-center p-4 bg-[#1F2937] rounded-lg shadow-lg hover:bg-[#253240] transition duration-300 transform hover:scale-[1.05]">
+                    <span class="text-4xl mb-2 text-[#00758F]">🗄️</span>
+                    <p class="font-semibold text-white">MySQL</p>
+                </div>
+                <!-- Skill Card 5: GitHub -->
+                <div class="flex flex-col items-center p-4 bg-[#1F2937] rounded-lg shadow-lg hover:bg-[#253240] transition duration-300 transform hover:scale-[1.05]">
+                    <span class="text-4xl mb-2 text-[#6e5494]">🐙</span>
+                    <p class="font-semibold text-white">GitHub</p>
+                </div>
+                <!-- Skill Card 6: IBM Cognos/Qlik -->
+                <div class="flex flex-col items-center p-4 bg-[#1F2937] rounded-lg shadow-lg hover:bg-[#253240] transition duration-300 transform hover:scale-[1.05]">
+                    <span class="text-4xl mb-2 text-[#3B82F6]">📊</span>
+                    <p class="font-semibold text-white">BI Tools</p>
+                </div>
+            </div>
+            
+            <h3 class="text-2xl font-semibold text-gray-300 mb-6 mt-12">Core Concepts & Personal Skills</h3>
+            <div class="flex flex-wrap gap-4">
+                <span class="bg-[#2A3445] text-gray-300 px-4 py-2 rounded-full">Data Structures</span>
+                <span class="bg-[#2A3445] text-gray-300 px-4 py-2 rounded-full">SQL</span>
+                <span class="bg-[#2A3445] text-gray-300 px-4 py-2 rounded-full">OOPS</span>
+                <span class="bg-[#2A3445] text-gray-300 px-4 py-2 rounded-full">Problem Solving</span>
+                <span class="bg-[#2A3445] text-gray-300 px-4 py-2 rounded-full">Leadership</span>
+                <span class="bg-[#2A3445] text-gray-300 px-4 py-2 rounded-full">Self Learning</span>
+            </div>
+        </section>
+
+        <!-- 4. Projects Section -->
+        <section id="projects" class="container mx-auto px-6 py-20 scroll-animate">
+            <h2 class="section-title text-4xl font-bold mb-12">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Project Card 1: Hotel Booking Website (Updated Links) -->
+                <div class="bg-[#1F2937] p-6 rounded-xl shadow-2xl flex flex-col hover:shadow-[#3B82F6]/50 transition duration-300 transform hover:-translate-y-1">
+                    <h3 class="text-2xl font-semibold text-[#3B82F6] mb-3">HomelyHub (Airbnb Clone)</h3>
+                    <p class="text-gray-400 mb-4 flex-grow">
+                        Developed "HomelyHub," a fully functional Hotel Booking website using the **MERN stack**. It includes key features like user authentication, property listings, secure booking management, reviews, and a responsive design.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-sm mb-4">
+                        <span class="bg-[#2A3445] text-gray-300 px-3 py-1 rounded-full">MERN Stack</span>
+                        <span class="bg-[#2A3445] text-gray-300 px-3 py-1 rounded-full">User Auth</span>
+                        <span class="bg-[#2A3445] text-gray-300 px-3 py-1 rounded-full">Payment Integration</span>
+                    </div>
+                    <div class="flex space-x-4 mt-auto">
+                        <a href="#" target="_blank" class="text-gray-300 hover:text-[#3B82F6] transition duration-300 font-medium">GitHub</a>
+                        <a href="#" target="_blank" class="text-gray-300 hover:text-[#3B82F6] transition duration-300 font-medium">Live Demo</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: Class Analysis Dashboard (Updated Links) -->
+                <div class="bg-[#1F2937] p-6 rounded-xl shadow-2xl flex flex-col hover:shadow-[#3B82F6]/50 transition duration-300 transform hover:-translate-y-1">
+                    <h3 class="text-2xl font-semibold text-[#3B82F6] mb-3">Class Analysis Static Dashboard</h3>
+                    <p class="text-gray-400 mb-4 flex-grow">
+                        Built a comprehensive static MS Excel dashboard to analyze student data (day scholars vs. hostelers, gender split, GATE aspirants, etc.) using pivot tables and complex visualizations for quick, actionable insights.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-sm mb-4">
+                        <span class="bg-[#2A3445] text-gray-300 px-3 py-1 rounded-full">MS Excel</span>
+                        <span class="bg-[#2A3445] text-gray-300 px-3 py-1 rounded-full">Data Analysis</span>
+                        <span class="bg-[#2A3445] text-gray-300 px-3 py-1 rounded-full">Pivot Tables</span>
+                    </div>
+                    <div class="flex space-x-4 mt-auto">
+                        <a href="#" target="_blank" class="text-gray-300 hover:text-[#3B82F6] transition duration-300 font-medium">View Report</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: Automated Fire Extinguisher (Updated Links) -->
+                <div class="bg-[#1F2937] p-6 rounded-xl shadow-2xl flex flex-col hover:shadow-[#3B82F6]/50 transition duration-300 transform hover:-translate-y-1">
+                    <h3 class="text-2xl font-semibold text-[#3B82F6] mb-3">Automated Fire Extinguisher</h3>
+                    <p class="text-gray-400 mb-4 flex-grow">
+                        Developed an automated fire extinguisher system using **Convolutional Neural Networks (CNN)**, which secured second place in a University Academic Exhibition. This demonstrates expertise in AI and practical hardware application.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-sm mb-4">
+                        <span class="bg-[#2A3445] text-gray-300 px-3 py-1 rounded-full">CNN (AI)</span>
+                        <span class="bg-[#2A3445] text-gray-300 px-3 py-1 rounded-full">Python</span>
+                        <span class="bg-[#2A3445] text-gray-300 px-3 py-1 rounded-full">Hardware Integration</span>
+                    </div>
+                    <div class="flex space-x-4 mt-auto">
+                        <a href="#" target="_blank" class="text-gray-300 hover:text-[#3B82F6] transition duration-300 font-medium">View Details</a>
+                    </div>
+                </div>
+
+                <!-- NEW Project Card 4 (Placeholder) -->
+                <div class="bg-[#1F2937] p-6 rounded-xl shadow-2xl flex flex-col hover:shadow-[#3B82F6]/50 transition duration-300 transform hover:-translate-y-1 opacity-75">
+                    <h3 class="text-2xl font-semibold text-[#6B7280] mb-3">Future Project Title</h3>
+                    <p class="text-gray-500 mb-4 flex-grow">
+                        This card is ready for your next big project! Describe the key features, the technology you used, and the problem it solves.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-sm mb-4">
+                        <span class="bg-[#2A3445] text-gray-500 px-3 py-1 rounded-full">Future Tech 1</span>
+                        <span class="bg-[#2A3445] text-gray-500 px-3 py-1 rounded-full">Future Tech 2</span>
+                    </div>
+                    <div class="flex space-x-4 mt-auto">
+                        <a href="#" target="_blank" class="text-gray-500 font-medium">GitHub</a>
+                        <a href="#" target="_blank" class="text-gray-500 font-medium">Live Demo</a>
+                    </div>
+                </div>
+
+                <!-- NEW Project Card 5 (Placeholder) -->
+                <div class="bg-[#1F2937] p-6 rounded-xl shadow-2xl flex flex-col hover:shadow-[#3B82F6]/50 transition duration-300 transform hover:-translate-y-1 opacity-75">
+                    <h3 class="text-2xl font-semibold text-[#6B7280] mb-3">Data Science Capstone</h3>
+                    <p class="text-gray-500 mb-4 flex-grow">
+                        Showcase a key data analysis result or machine learning model here. Highlight the methodology and the impact of the findings.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-sm mb-4">
+                        <span class="bg-[#2A3445] text-gray-500 px-3 py-1 rounded-full">Python</span>
+                        <span class="bg-[#2A3445] text-gray-500 px-3 py-1 rounded-full">ML Model</span>
+                    </div>
+                    <div class="flex space-x-4 mt-auto">
+                        <a href="#" target="_blank" class="text-gray-500 font-medium">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- NEW Project Card 6 (Placeholder) -->
+                <div class="bg-[#1F2937] p-6 rounded-xl shadow-2xl flex flex-col hover:shadow-[#3B82F6]/50 transition duration-300 transform hover:-translate-y-1 opacity-75">
+                    <h3 class="text-2xl font-semibold text-[#6B7280] mb-3">Software Development Tool</h3>
+                    <p class="text-gray-500 mb-4 flex-grow">
+                        Detail an internal tool, script, or utility you built to simplify a process or solve a specific development challenge.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-sm mb-4">
+                        <span class="bg-[#2A3445] text-gray-500 px-3 py-1 rounded-full">Java</span>
+                        <span class="bg-[#2A3445] text-gray-500 px-3 py-1 rounded-full">Utility</span>
+                    </div>
+                    <div class="flex space-x-4 mt-auto">
+                        <a href="#" target="_blank" class="text-gray-500 font-medium">Source Code</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Contact Section -->
+        <section id="contact" class="container mx-auto px-6 py-20 text-center scroll-animate">
+            <h2 class="section-title text-4xl font-bold mb-8 mx-auto">Get In Touch</h2>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                I am currently open to new opportunities and collaborations. Whether you have a project idea or just want to chat, feel free to reach out!
+            </p>
+
+            <!-- Contact Form Placeholder (using link from resume) -->
+            <div class="max-w-md mx-auto bg-[#1F2937] p-8 rounded-xl shadow-2xl">
+                <a href="mailto:sanjuganta11@gmail.com" class="inline-block w-full px-8 py-3 text-xl font-semibold text-white bg-[#3B82F6] rounded-lg shadow-lg hover:bg-[#2563EB] transition duration-300 transform hover:scale-[1.03] focus:outline-none focus:ring-4 focus:ring-[#3B82F6]/50">
+                    Email Me Directly
+                </a>
+                <p class="mt-4 text-sm text-gray-400">sanjuganta11@gmail.com</p>
+                <p class="mt-2 text-sm text-gray-400">Phone: +91-9182513594</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1F2937] py-8 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400 mb-4">&copy; <span id="current-year"></span> Ganta Anand. All rights reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <!-- Social Media Links (GitHub link is still placeholder, LinkedIn is updated) -->
+                <a href="https://github.com/AnandGanta" target="_blank" class="text-gray-400 hover:text-white transition duration-300 text-2xl">
+                    <!-- GitHub Icon SVG Placeholder -->
+                    <svg class="w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.88-.014-1.722-2.787.604-3.37-1.341-3.37-1.341-.454-1.156-1.11-1.464-1.11-1.464-.908-.618.069-.606.069-.606 1.002.07 1.531 1.033 1.531 1.033.89 1.528 2.341 1.088 2.91.83.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.115-4.555-4.942 0-1.09.39-1.984 1.03-2.68-.103-.253-.448-1.267.097-2.658 0 0 .84-.268 2.75 1.025.795-.222 1.638-.333 2.48-.337 2.222.003 3.065.115 3.86.337 1.91-1.293 2.75-1.025 2.75-1.025.545 1.391.202 2.405.099 2.658.641.696 1.03 1.59 1.03 2.68 0 3.835-2.339 4.685-4.562 4.935.358.307.677.917.677 1.84 0 1.333-.012 2.417-.012 2.75 0 .267.18.577.688.484C20.895 20.198 24 16.43 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/anandganta000" target="_blank" class="text-gray-400 hover:text-white transition duration-300 text-2xl">
+                    <!-- LinkedIn Icon SVG Placeholder -->
+                    <svg class="w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.377-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.784 7 2.433v6.802z" /></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in the footer dynamically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // --- 1. CURSOR MOVEMENT (TILT) EFFECT ---
+        const heroText = document.getElementById('hero-text-container');
+
+        if (heroText) {
+            heroText.addEventListener('mousemove', function(e) {
+                const rect = heroText.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                // Calculate cursor position relative to the element's center (0,0)
+                const cursorX = e.clientX - rect.left;
+                const cursorY = e.clientY - rect.top;
+
+                // Normalized values from -1 (left/top) to 1 (right/bottom)
+                const normalizedX = (cursorX - centerX) / centerX;
+                const normalizedY = (cursorY - centerY) / centerY;
+
+                const maxTilt = 5; // Max degree rotation
+                const maxTranslate = 5; // Max translation in pixels
+
+                // Tilt based on mouse position (Invert X-tilt for natural perspective)
+                const tiltX = normalizedY * maxTilt * -1;
+                const tiltY = normalizedX * maxTilt;
+
+                // Apply small translation for a floating effect
+                const translateX = normalizedX * maxTranslate;
+                const translateY = normalizedY * maxTranslate;
+
+                heroText.style.transform = `
+                    perspective(1000px)
+                    rotateX(${tiltX}deg)
+                    rotateY(${tiltY}deg)
+                    translateX(${translateX}px)
+                    translateY(${translateY}px)
+                `;
+            });
+
+            // Reset transform when mouse leaves the element
+            heroText.addEventListener('mouseleave', function() {
+                heroText.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateX(0px) translateY(0px)';
+            });
+        }
+
+
+        // --- 2. SCROLL-TRIGGERED FADE-IN ANIMATION (Intersection Observer) ---
+        const observerOptions = {
+            root: null, // relative to the viewport
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the element is visible
+        };
+
+        const intersectionCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Stop observing once it's visible
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const sections = document.querySelectorAll('.scroll-animate');
+        const observer = new IntersectionObserver(intersectionCallback, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+
+        // Simple smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Basic mobile menu toggle placeholder
+        const mobileMenuButton = document.querySelector('header button');
+        mobileMenuButton.addEventListener('click', () => {
+            console.log("Mobile menu button clicked!");
+        });
+    </script>
+</body>
+</html>
